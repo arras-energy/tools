@@ -15,8 +15,10 @@ fi
 # install to python site-packages
 python3 -m pip install --force-reinstall git+https://github.com/arras-energy/$PACKAGE
 
+# compile the package
+python3 -m tools.__init__
+
 # link package into gridlabd etc
-SOURCE=$GLD_VER/lib/python$PYTHON_VER/site-packages/$PACKAGE
-for FILE in $SOURCE/*.py; do
+for FILE in $PYTHON_LIB/$PACKAGE/*.py; do
 	ln -sf $FILE $GLD_ETC
 done
