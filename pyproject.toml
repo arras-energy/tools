@@ -2,8 +2,13 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.package-data]
-tools = ["*.py"]
+[tool.setuptools]
+packages = [
+    "tools"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.setuptools.dynamic]
 dependencies = {file=["requirements.txt"]}
@@ -35,3 +40,4 @@ Homepage = "https://github.com/arras-energy/tools"
 Documentation = "https://arras.energy/tools"
 Repository = "https://github.com/arras-energy/tools.git"
 Issues = "https://github.com/arras-energy/tools/issues"
+
