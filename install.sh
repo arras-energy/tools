@@ -1,10 +1,7 @@
 #!/bin/bash
 # Syntax: install.sh
-#
-# Arras Energy package installer
-#
 
-PACKAGE=tools
+PACKAGE=converters
 
 # verify the gridlabd environment
 if [ "${GLD_VER:-none}" == "none" ]; then
@@ -16,9 +13,9 @@ fi
 python3 -m pip install --force-reinstall git+https://github.com/arras-energy/$PACKAGE
 
 # compile the package
-python3 -m tools.__init__
+python3 -m $PACKAGE.__init__
 
-# link package into gridlabd etc
-for FILE in $PYTHON_LIB/$PACKAGE/*.py; do
+# link package files into gridlabd etc
+for FILE in $PYTHON_LIB/$PACKAGE/*; do
 	ln -sf $FILE $GLD_ETC
 done
