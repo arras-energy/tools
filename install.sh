@@ -1,7 +1,7 @@
 #!/bin/bash
 # Syntax: install.sh
 
-PACKAGE=converters
+PACKAGE=tools
 
 # verify the gridlabd environment
 if [ "${GLD_VER:-none}" == "none" ]; then
